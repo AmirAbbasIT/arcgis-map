@@ -2,8 +2,6 @@
   padding: 0px;
   margin: 0px;
 }
-
-
 .bottom-bar{
   position: fixed;
   bottom: 0px;
@@ -31,31 +29,25 @@
   border-top-left-radius: 8px;
   background-color: #66392E;
   color: #E4C5A1;
-  
 }
 .esri-search__form > input::placeholder{
   color: #E4C5A1;
 }
-
 button.esri-search__clear-button.esri-widget--button {
   display: none;
 }
-
 button.esri-search__submit-button.esri-widget--button {
   border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
   background-color: #66392E;
   color: #E4C5A1;
 }
-
 .esri-menu {
   bottom: 100% !important;
   top: unset !important;
   left: unset !important;
 }
-
 /* End of Search Filter...*/
-
 /* Widget Container */
 .widgets-container{
   margin-right: 80px;
@@ -81,7 +73,6 @@ img {
   width: 15px;
   margin: 0px 5px;
 }
-
 .widget-section {
   margin: 5px;
   position: fixed;
@@ -91,7 +82,6 @@ img {
   bottom: 40px;
   right: 0px;
   z-index: 100;
- 
 }
 .widget-section  div{
   overflow: auto;
@@ -104,13 +94,11 @@ img {
 .inactive {
   display: none !important;
 }
-
 .selected{
   border: 1px solid #2a1a1f;
   border-radius: 8px;
   cursor: pointer;
 }
-
 /* map Default Widgets.... */
 .esri-ui-top-left {
   right: 13px !important;
@@ -146,9 +134,7 @@ img {
 .esri-component.esri-zoom.esri-widget {
   border-radius: 8px !important;
 }
-
 /* Top Bar */
-
 .top-bar{
   background-color: #2a1a1f;
   text-align: center;
@@ -180,9 +166,6 @@ span.full-screen-icon > img{
   width: 25px;
   /* margin-right: 30px; */
 }
-
-
-
 /* sidebar css */
 .sidebar{
   cursor: pointer;
@@ -196,22 +179,25 @@ span.full-screen-icon > img{
   color: aliceblue;
 }
 .filter-icon {
-  top: calc(50vh - 100px);
+  top: calc(50vh - 120px);
     position: absolute;
-    right: -32px;
+    right: -50px;
     padding: 4px;
     background: #2a1a1f;
     border-radius: 0px 8px 8px 0px;
     border: 1px solid #2a1a1f;
 }
-
+.filter-icon-wrapper img {
+  width: 30px;
+  margin: 8px;
+}
 .sidebar-content {  
   position: relative;
   top: 81px;
   width: 100%;
   transition:all 0.5s ease-in;
   opacity: 1;
-  height: 85vh;;
+  height: 90vh;
   background: #2a1a1f;
   padding-top: 10px;
 }
@@ -243,14 +229,13 @@ flex-grow: 2;
 .sidebar-content .content-body{
     margin-top: 10px;
     display: flex;
-    max-width: 325px;
+    max-width: 50vw;
     flex-wrap: wrap;
     scroll-behavior: smooth;
     overflow: auto;
-    max-height: 470px;
+    max-height: 85vh;
     transition: none;
 }
-
 .sidebar-content .content-body::-webkit-scrollbar {
   display: none;
 }
@@ -260,12 +245,11 @@ flex-grow: 2;
 }
 .content-body .card {
   margin: 5px;
-  width: 150px;
-  height: 180px;
+  width: 270px;
+  height: 350px;
   background: #66392E;
   border-radius: 8px;
 }
-
 /* sidebar css ends */
 .topo-map {
   height: 100vh !important;
@@ -280,13 +264,20 @@ flex-grow: 2;
 .esri-component.esri-fullscreen.esri-widget--button.esri-widget {
   right: 28px !important;
   position: fixed !important;
-  bottom: 269px !important;
+  bottom: 5px !important;
   border-radius: 4px !important;
   z-index: 10 !important;
-  background-color: #2a1a1f !important;
+  background-color: unset !important;
   color: #ddbd9a !important;
+  box-shadow: none;
 }
-
+.esri-ui {
+  position: fixed !important;
+  z-index: 12 !important;
+}
+.esri-ui .esri-attribution {
+  display: none !important;
+}
 /* Slides Widget Css Start*/
 #createSlideDiv {
   background-color: #66392E;
@@ -294,7 +285,6 @@ flex-grow: 2;
   color: bisque;
   padding: 6px;
 }
-
 #slidesDiv {
   background-color: #66392E;
   opacity: 0.9;
@@ -306,19 +296,16 @@ flex-grow: 2;
   text-align: center;
   height: 260px;
 }
-
 #slidesDiv .slide {
   /* Show cursor as pointer when on a slide */
   cursor: pointer;
   margin-bottom: 6px;
 }
-
 #slidesDiv .slide .title {
   /* Center the title text */
   text-align: center;
 }
 /* Draw active slide with a nice border around the thumbnail */
-
 #slidesDiv .slide.active img {
   box-shadow: 0px 0px 12px black;
   border-style: solid;
@@ -343,23 +330,139 @@ button#createSlideButton {
   scrollbar-width: none !important;  
 }
 /* Slides Widget Css Ends*/
-
+.esri-button {
+  background-color: #2a1a1f !important;
+  border: 1px solid #e4c5a1 !important;
+  color: #d5b493 !important;
+}
+.esri-button:hover{
+  background-color: #2a1a1fde !important;
+  border-color: #2a1a1f !important;
+}
+.esri-direct-line-measurement-3d__measurement,.esri-area-measurement-3d__measurement {
+  background-color: #66392e !important;
+  color: #e4c5a1 !important;
+}
+.esri-select {
+  background-color:#66392e ;
+  color: #323232;
+  background: 
+  url("data:image/svg+xml,%3Csvg width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%20xmlns%3D%27http://www.w3.org/2000/svg%27%3E%3Cpath%20d%3D%27M11%2013l5%205.833L21%2013z%27%20fill%3D%27%236e6e6e%27%20fill-rule%3D%27nonzero%27/%3E%3C/svg%3E")
+   no-repeat right center #e4c5a1;
+}
+.active.esri-layer-list.esri-widget.esri-widget--panel {
+  background: #66392e !important;
+  color: #e4c5a1 !important;
+}
+.esri-legend--card.esri-legend--stacked {
+  background: #66392e !important;
+  color: #d5b493 !important;
+}
+[class*=esri-icon] {
+  font-size: 19px !important;
+}
+h3.esri-widget__heading {
+  color: #d5b493 !important;
+}
+.active.esri-daylight.esri-widget {
+  background: #66392e !important;
+  color: #d5b493 !important;
+}
+.esri-slider.esri-widget.esri-slider--horizontal {
+  background: #66392e !important;
+}
+svg {
+  fill: #d5b493 !important;
+}
+/* Start esri gallery*/
+.esri-basemap-gallery {
+  background-color: #66392e !important;
+}
+.esri-basemap-gallery__item-title {
+  color: #e4c5a1 !important;
+}
+.basemap-gallery-custom::-webkit-scrollbar {
+  display: none !important;
+}
+.basemap-gallery-custom {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;  
+}
+.esri-basemap-gallery__item:hover {
+  background-color: #2a1a1f !important;
+  color: #e4c5a1 !important;
+}
+.esri-basemap-gallery__item:hover .esri-basemap-gallery__item-title{
+  color: #e4c5a1 !important;
+}
+/* end esri gallery*/
+.esri-slider.esri-widget.esri-slider--horizontal .esri-hidden {
+  color: #fff;
+  font-size: 14px;
+  display: block !important;
+}
+.esri-slider__thumb::before{
+  content: '';
+  position: fixed;
+  width: 8px;
+  background-color: #FFF;
+  margin-top: 2px;
+  height: 8px;
+  border-radius: 50px;
+}
+.esri-slider__thumb:hover{
+  transform: unset !important;
+  cursor: default !important;
+}
+.esri-slider__track{
+  background-color: #fff !important;
+}
+/* .esri-slider__ticks div{
+  font-size: 14px;
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  background-color: red;
+} */
+label.esri-widget__anchor.esri-interactive {
+  color: #e4c5a1 !important;
+}
+span.esri-icon.esri-icon-zoom-in-fixed {
+  color: #2a1a1f;
+}
+.esri-basemap-gallery__item--selected, .esri-basemap-gallery__item.esri-basemap-gallery__item--selected:hover, .esri-basemap-gallery__item.esri-basemap-gallery__item--selected:focus {
+  background-color: #2a1a1f;
+}
 /* Mobile Responsive Css*/
 
-@media only screen and (max-width: 400px) {
- .bottom-bar{
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .widgets-container {
-    margin-right: 0px;
-  }
+@media only screen and (max-width: 1120px) {
   .content-body .card {
-    margin: 5px;
-    width: 130px;
-    height: 160px;
-  }
+    width: 243px;
+    height: 331px;
 }
+.sidebar-content .content-body {
+  max-width: 60vw;
+}
+}
+@media only screen and (max-width: 825px) {
+  .content-body .card {
+    width: 243px;
+    height: 331px;
+}
+.sidebar-content .content-body {
+  max-width: 70vw;
+}
+}
+@media only screen and (max-width: 750px) {
+  .content-body .card {
+    width: 243px;
+    height: 331px;
+}
+.sidebar-content .content-body {
+  max-width: 86vw;
+}
+}
+
 @media only screen and (max-width: 500px) {
   .widgets-container {
     margin-right: 20px;
@@ -367,3 +470,18 @@ button#createSlideButton {
     margin-left: 25px;
   }
 }
+
+@media only screen and (max-width: 400px) {
+  .bottom-bar{
+     flex-wrap: wrap;
+     justify-content: center;
+   }
+   .widgets-container {
+     margin-right: 0px;
+   }
+   .content-body .card {
+     margin: 5px;
+     width: 280px;
+     height: 250px;
+   }
+ }

@@ -97,7 +97,7 @@ const Widgets = ({ searchRef, basemapRef, daylightRef, distanceRef, areaRef, lay
                 </div>
                 <div className={`${selectedWidget == "daylight" ? "active esri-daylight esri-widget" : "inactive"}`} ref={daylightRef}>
                 </div>
-                <div className={`${selectedWidget == "basemap" ? "active" : "inactive"}`} ref={basemapRef}>
+                <div className={`basemap-gallery-custom ${selectedWidget == "basemap" ? "active" : "inactive"}`} ref={basemapRef}>
                 </div>
                 <div className={`${selectedWidget == "layers" ? "active" : "inactive"}`} ref={layersRef}>
                 </div>
