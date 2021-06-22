@@ -534,7 +534,7 @@ span.esri-icon.esri-icon-zoom-in-fixed {
     height: 210px;
 }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 560px) {
   .content-body .card {
     height: 300px;
     width: 300px;

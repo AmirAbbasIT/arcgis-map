@@ -18,6 +18,7 @@ const Map = () => {
 
     //
     useEffect(() => {
+        document.cookie = "SameSite=None, Secure";
         loadModules([
             "esri/config",
             "esri/Map",
