@@ -234,8 +234,8 @@ flex-grow: 2;
 }
 .content-body .card {
   margin: 5px;
-  width: 300px;
-  height: 300px;
+  width: 330px;
+  height: 330px;
   background: #66392E;
   border-radius: 8px;
 }
@@ -412,9 +412,8 @@ span.esri-icon.esri-icon-zoom-in-fixed {
 }
 @media only screen and (max-width: 1500px) {
   .sidebar-content {
-    width: 50vw;
+    width: 58vw;
 }
-  
   .sidebar-content .content-body {
     max-width: 70vw;
   } 
@@ -438,7 +437,6 @@ span.esri-icon.esri-icon-zoom-in-fixed {
     width: 280px;
     height: 280px;
 }
-
 .sidebar-content {
   width: 64vw;
 }
@@ -455,7 +453,6 @@ span.esri-icon.esri-icon-zoom-in-fixed {
     max-width: 77vw;
 }
   }
-
 @media only screen and (max-width: 750px) {
    .sidebar-content{
     width: 82vw;
