@@ -1,12 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { loadModules } from 'esri-loader';
 import Widgets from './Widgets';
+import { loadWidget, createSlideUI } from '../Utils/widgets';
 const Map = () => {
 
-    const [view, setView] = useState(null);
-    useEffect(() => {
-        console.log("View", view);
-    }, [view])
     const mapRef = useRef();
 
     // Widgets Refs...
@@ -17,7 +14,7 @@ const Map = () => {
     const areaRef = useRef();
     const layersRef = useRef();
     const legendsRef = useRef();
-    const fullScreenRef = useRef();
+
 
     //
     useEffect(() => {
@@ -42,15 +39,14 @@ const Map = () => {
                 Search,
                 DirectLineMeasurement3D,
                 AreaMeasurement3D,
-
                 BasemapGallery,
                 Daylight,
-
                 LayerList,
                 Legend,
                 Fullscreen,
                 Slide
             ]) => {
+
                 esriConfig.apiKey = "AAPK9c7f8c1db2274a55ac08483ae7df46a7AmG6j3sj2BPjdDShFCXB9gm4R2ijnCHLPww42eJSwQF46AbjrD1rR6GJS98-uRqs";
 
                 const map = new Map({
@@ -71,120 +67,44 @@ const Map = () => {
                     }
                 });
 
-                // Widget 1 Search Widget
 
-                var searchWidget = new Search({
-                    container: searchRef.current,
-                    view: view
-                });
+                loadWidget(Search, view, searchRef)
 
-                // // Add the search widget to the top right corner of the view
-                // view.ui.add(searchWidget, {
-                //     position: "top-right"
-                // });
+                loadWidget(DirectLineMeasurement3D, view, distanceRef)
 
-                // Widget 2 Distance Widget
-                var distanceWidget = new DirectLineMeasurement3D({
-                    container: distanceRef.current,
-                    view: view
-                });
+                loadWidget(AreaMeasurement3D, view, areaRef)
 
-                //   // skip the initial 'new measurement' button
-                // distanceWidget.viewModel.start();
-                // view.ui.add(distanceWidget, "top-right");
+                loadWidget(BasemapGallery, view, basemapRef)
 
-                // Widget 3 Area Widget
-                var areaWidget = new AreaMeasurement3D({
-                    container: areaRef.current,
-                    view: view
-                });
-
-                // // skip the initial 'new measurement' button
-                // areaWidget.viewModel.start();
-                // view.ui.add(areaWidget, "top-right");
-
-                // Widget 4 Layers Widget
-
-                var basemapGallery = new BasemapGallery({
-                    container: basemapRef.current,
-                    view: view
-                });
-
-                // Add the widget to the top-right corner of the view
-                // view.ui.add(basemapGallery, {
-                //     position: "top-right"
-                // });
-
-                // Widget 5 Layers Widget
-
-                const daylightWidget = new Daylight({
-                    container: daylightRef.current,
-                    view: view,
-                    // plays the animation twice as fast than the default one
+                loadWidget(Daylight, view, daylightRef, {
                     playSpeedMultiplier: 2,
-                    // disable the timezone selection button
                     visibleElements: {
                         timezone: false
                     }
-                });
-                // view.ui.add(daylightWidget, "top-right");
+                })
 
-                // Widget 6 Legends 
-                // var featureLayer = view.layers.getItemAt(0);
-
-                // var legend = new Legend({
-                //     view: view,
-                //     // layerInfos: [
-                //     //     {
-                //     //         layer: featureLayer,
-                //     //         title: "NY Educational Attainment"
-                //     //     }
-                //     // ]
-                // });
-                // view.ui.add(legend, "top-right");
-
-                // Widget 7 Layers Widget
-
-                var layerList = new LayerList({
-                    container: layersRef.current,
-                    view: view,
+                loadWidget(LayerList, view, layersRef, {
                     listItemCreatedFunction: function (event) {
                         const item = event.item;
-                        if (item.layer.type != "group") {
-                            // don't show legend twice
+                        if (item.layer.type !== "group") {
                             item.panel = {
                                 content: "legend",
                                 open: true
                             };
                         }
                     }
-                });
+                })
 
-                // // Add widget to the top right corner of the view
-                // view.ui.add(layerList, "top-right");
-
-                // Widget 8 Legends..
-
-                var legend = new Legend({
-                    container: legendsRef.current,
-                    view: view,
-                    style: "card" // other styles include 'classic'
-                });
-                // view.ui.add(legend, "bottom-left");
+                loadWidget(Legend, view, legendsRef, { style: "card" })
 
                 // Widget 9 FullScreen
                 var fullscreen = new Fullscreen({
-                    // container: fullScreenRef.current,
                     view: view,
-                    // id: "full-widget",
-                    // declaredClass: "full-screen-custom"
                 });
                 view.ui.add(fullscreen, "bottom-right");
 
 
-                ///// Slides Code...
-                // view.ui.add(["createSlideDiv", "slidesDiv"], "top-right");
-
+                // Slides Widget
                 function createSlideUI(slide, placement) {
                     var slideElement = document.createElement("div");
                     slideElement.id = slide.id;
@@ -213,7 +133,7 @@ const Map = () => {
                         slide.applyTo(view);
                     });
                 }
-
+                ///
                 document.getElementById("slidesDiv").style.visibility = "visible";
                 var slides = view.presentation?.slides;
                 slides?.forEach(createSlideUI);
@@ -229,9 +149,7 @@ const Map = () => {
             })
     }, [])
 
-    useEffect(() => {
-        console.log("View:", view)
-    }, [view])
+
 
     return (
         <div>
@@ -243,7 +161,6 @@ const Map = () => {
                 areaRef={areaRef}
                 layersRef={layersRef}
                 legendsRef={legendsRef}
-                fullScreenRef={fullScreenRef}
             />
             <div style={{ height: "100vh", width: "100vw" }} className="topo-map" ref={mapRef}>
             </div>
