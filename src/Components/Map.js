@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { loadModules } from 'esri-loader';
 import Widgets from './Widgets';
-import { loadWidget, createSlideUI } from '../Utils/widgets';
+import { loadWidget } from '../Utils/widgets';
 const Map = () => {
 
     const mapRef = useRef();

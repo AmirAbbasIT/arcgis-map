@@ -183,7 +183,7 @@ span.full-screen-icon > img{
 .sidebar-content {  
   position: relative;
   top: 81px;
-  width: 50vw;
+  width: 43vw;
   transition:all 0.5s ease-in;
   opacity: 1;
   height: 90vh;
@@ -224,6 +224,7 @@ flex-grow: 2;
     overflow: auto;
     max-height: 85vh;
     transition: none;
+    justify-content: center;
 }
 .sidebar-content .content-body::-webkit-scrollbar {
   display: none;
